@@ -6,15 +6,21 @@
 
   services.xserver = {
     enable = true;
-
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
     desktopManager.plasma6.enable = true;
 
     libinput.enable = true;
     xkb = {
       layout = "us";
       variant = "";
+    };
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd startplasma-x11";
+      };
     };
   };
 
@@ -57,10 +63,10 @@
     nixd
     nixpkgs-fmt
     razergenie
-    sddm-kcm # SDDM configuration module for KDE
     spotify
     steam
     telegram-desktop
+    greetd.tuigreet
     vscode-fhs
   ];
 
