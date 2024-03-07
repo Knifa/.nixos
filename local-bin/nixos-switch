@@ -1,0 +1,46 @@
+#!/bin/sh
+set -euo pipefail
+cd "${NIXOS_REPO_DIR:-$HOME/.nixos}"
+
+echo "Test building configuration..."
+nixos-rebuild build --flake .
+rm -rf result
+echo
+
+# Check for uncommitted changes.
+if [ -n "$(git status --porcelain)" ]; then
+  echo "Uncommitted changes detected in nixos repo."
+  read -p "Create commit? [Y/n] (default: y): " CREATE_COMMIT
+  CREATE_COMMIT="${CREATE_COMMIT:-y}"
+
+  if [ "$CREATE_COMMIT" = "Y" ] || [ "$CREATE_COMMIT" = "y" ]; then
+    read -p "Commit message (default: auto): " COMMIT_MESSAGE
+    COMMIT_MESSAGE="${COMMIT_MESSAGE:-nixos-switch: auto commit}"
+    echo "Creating commit..."
+    git add -A
+    git commit -m "$COMMIT_MESSAGE"
+
+    if [ -n "$(git status --porcelain)" ]; then
+      echo "Uncommitted changes detected after commit. Aborting."
+      exit 1
+    fi
+  else
+    echo "Aborting."
+    exit 1
+  fi
+
+  echo
+fi
+
+echo "Switching to new configuration..."
+TMP_DIR="$(mktemp -d)"
+git checkout-index -a --prefix="$TMP_DIR/"
+sudo sh -c "
+    set -euo pipefail
+
+    mv /etc/nixos /etc/nixos.old
+    mv $TMP_DIR /etc/nixos
+    chown -R root:root /etc/nixos
+    nixos-rebuild switch
+    rm -rf /etc/nixos.old
+"

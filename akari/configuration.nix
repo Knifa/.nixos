@@ -46,21 +46,10 @@
 
   environment.systemPackages = with pkgs; [
     audacity
-    bitwarden
-    chromium
-    discord
-    firefox
-    git
     input-leap
     krita
-    nixd
-    nixpkgs-fmt
     razergenie
-    sddm-kcm # SDDM configuration module for KDE
-    spotify
     steam
-    telegram-desktop
-    vscode-fhs
   ];
 
   environment.sessionVariables = {

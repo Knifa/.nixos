@@ -15,7 +15,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.dan = {
-            imports = [ ./akari/home.nix ];
+            imports = [ ./home.nix ];
           };
         }
       ];
