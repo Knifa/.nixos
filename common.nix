@@ -24,4 +24,6 @@
     vlc
     vscode-fhs
   ];
+
+  services.flatpak.enable = true;
 }
