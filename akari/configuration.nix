@@ -31,8 +31,11 @@
     pkgs.qmk-udev-rules
   ];
 
-  hardware.openrazer.enable = true;
-  hardware.openrazer.users = [ "dan" ];
+  hardware.openrazer = {
+    enable = true;
+    mouseBatteryNotifier = false;
+    users = [ "dan" ];
+  };
 
   users.users.dan = {
     isNormalUser = true;
