@@ -16,13 +16,16 @@
     bitwarden
     discord
     firefox
-    git
-    nixd
-    nixpkgs-fmt
     spotify
     telegram-desktop
     vlc
+
+    git
+    nixd
+    nixpkgs-fmt
     vscode-fhs
+
+    discover # for flatpak
   ];
 
   services.flatpak.enable = true;
