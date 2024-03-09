@@ -63,5 +63,5 @@
 
   programs.git.enable = true;
   programs.git.userName = "Knifa";
-  programs.git.userEmail = "knifacat@gmail.com";
+  programs.git.userEmail = "Knifa@users.noreply.github.com";
 }

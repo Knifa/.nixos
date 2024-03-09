@@ -3,6 +3,7 @@ set -euo pipefail
 cd "${NIXOS_REPO_DIR:-$HOME/.nixos}"
 
 echo "Test building configuration..."
+git add -A --intent-to-add
 nixos-rebuild build --flake .
 rm -rf result
 echo

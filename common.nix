@@ -10,6 +10,7 @@
   i18n.defaultLocale = "en_GB.UTF-8";
 
   boot.loader.systemd-boot.configurationLimit = lib.mkDefault 5;
+  hardware.enableAllFirmware = true;
 
   environment.systemPackages = with pkgs; [
     bitwarden
