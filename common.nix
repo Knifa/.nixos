@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     bitwarden
     discord
+    filezilla
     firefox
     git
     nixd
