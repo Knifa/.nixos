@@ -45,6 +45,7 @@
 
   environment.systemPackages = with pkgs; [
     audacity
+    chromium
     input-leap
     krita
     razergenie

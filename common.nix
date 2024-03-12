@@ -3,8 +3,13 @@
   nix.gc.automatic = true;
   nix.optimise.automatic = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  nixpkgs.config.allowUnfree = true;
+  
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "nix-2.16.2"
+    ];
+  };    
 
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
