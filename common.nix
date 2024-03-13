@@ -20,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     bitwarden
     discord
+    filezilla
     firefox
     spotify
     telegram-desktop
