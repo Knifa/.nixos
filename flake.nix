@@ -3,9 +3,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    ondsel.url = "github:pinpox/ondsel-nix";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, ondsel, ... }:
     let
       homeMangagerModules = [
         home-manager.nixosModules.home-manager
@@ -22,6 +23,14 @@
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            {
+              nixpkgs.overlays = [
+                (_: _: {
+                  ondsel = ondsel;
+                })
+              ];
+            }
+            
             ./common.nix
             ./${hostname}/configuration.nix
             ./${hostname}/hardware-configuration.nix

@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 {
+  services.desktopManager.plasma6.enable = true;
   services.xserver = {
     enable = true;
 
     displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
-
+    
     libinput.enable = true;
     xkb = {
       layout = "us";
@@ -48,6 +48,7 @@
     chromium
     input-leap
     krita
+    ondsel
     razergenie
     steam
   ];
