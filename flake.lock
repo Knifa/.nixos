@@ -51,27 +51,6 @@
         "type": "indirect"
       }
     },
-    "ondsel": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2",
-        "ondsel-appimage-aarch64-linux": "ondsel-appimage-aarch64-linux",
-        "ondsel-appimage-x86_64-linux": "ondsel-appimage-x86_64-linux",
-        "ondsel-feedstock": "ondsel-feedstock"
-      },
-      "locked": {
-        "lastModified": 1710165992,
-        "narHash": "sha256-Nk/bndskmQJCiyqkhQJOEffZAL6hAP/B1efETSjxOWE=",
-        "owner": "pinpox",
-        "repo": "ondsel-nix",
-        "rev": "4a9755b94488d38400cdd10ec3fa9fe30d6140af",
-        "type": "github"
-      },
-      "original": {
-        "owner": "pinpox",
-        "repo": "ondsel-nix",
-        "type": "github"
-      }
-    },
     "ondsel-appimage-aarch64-linux": {
       "flake": false,
       "locked": {
@@ -112,11 +91,32 @@
         "type": "github"
       }
     },
+    "ondsel-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2",
+        "ondsel-appimage-aarch64-linux": "ondsel-appimage-aarch64-linux",
+        "ondsel-appimage-x86_64-linux": "ondsel-appimage-x86_64-linux",
+        "ondsel-feedstock": "ondsel-feedstock"
+      },
+      "locked": {
+        "lastModified": 1710165992,
+        "narHash": "sha256-Nk/bndskmQJCiyqkhQJOEffZAL6hAP/B1efETSjxOWE=",
+        "owner": "pinpox",
+        "repo": "ondsel-nix",
+        "rev": "4a9755b94488d38400cdd10ec3fa9fe30d6140af",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pinpox",
+        "repo": "ondsel-nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "ondsel": "ondsel"
+        "ondsel-nix": "ondsel-nix"
       }
     }
   },
