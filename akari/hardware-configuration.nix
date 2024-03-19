@@ -33,9 +33,9 @@
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.enable = true;
 
-    kernelParams = [
-      "nvidia-drm.fbdev=1"
-    ];
+    # kernelParams = [
+    #   "nvidia-drm.fbdev=1"
+    # ];
   };
 
   hardware = {
@@ -43,9 +43,9 @@
 
     nvidia = {
       modesetting.enable = true;
-      open = false;
+      open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      powerManagement.enable = true;
+      # powerManagement.enable = true;
     };
 
     opengl = {
