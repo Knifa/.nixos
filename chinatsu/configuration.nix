@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 {
+  services.desktopManager.plasma6.enable = true;
   services.xserver = {
     enable = true;
 
     displayManager.sddm.enable = true;
     displayManager.sddm.wayland.enable = true;
-    desktopManager.plasma6.enable = true;
 
     libinput.enable = true;
     xkb = {
@@ -37,8 +37,6 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Enable Ozone-Wayland for Electron apps.
   };
-
-  services.flatpak.enable = true;
 
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = false;
